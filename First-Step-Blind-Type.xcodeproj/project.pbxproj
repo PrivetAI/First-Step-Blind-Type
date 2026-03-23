@@ -7,33 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA000001 /* BlindTypeTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000001; };
-		AA000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000002; };
-		AA000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB000003; };
-		AA000004 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000004; };
-		AA000005 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000005; };
-		AA000006 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000006; };
-		AA000007 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000007; };
-		AA000008 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000008; };
-		AA000009 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000009; };
-		AA000010 /* WordBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000010; };
-		AA000011 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000011; };
-		AA000012 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000012; };
-		AA000013 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000013; };
-		AA000014 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000014; };
-		AA000015 /* WebPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000015; };
-		AA000016 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000016; };
-		AA000017 /* RedirectTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000017; };
-		AA000018 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB000018; };
-		AA000019 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB000019; };
-		AA000020 /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000021; };
-		AA000021 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000022; };
-		AA000022 /* PremiumModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000023; };
+		AA000001 /* FirstStepBlindTypeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000001 /* FirstStepBlindTypeApp.swift */; };
+		AA000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000002 /* ContentView.swift */; };
+		AA000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB000003 /* Assets.xcassets */; };
+		AA000004 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000004 /* HomeView.swift */; };
+		AA000005 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000005 /* TrainingView.swift */; };
+		AA000006 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000006 /* KeyboardView.swift */; };
+		AA000007 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000007 /* ResultsView.swift */; };
+		AA000008 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000008 /* StatsView.swift */; };
+		AA000009 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000009 /* SettingsView.swift */; };
+		AA000010 /* WordBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000010 /* WordBank.swift */; };
+		AA000011 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000011 /* GameManager.swift */; };
+		AA000012 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000012 /* ThemeManager.swift */; };
+		AA000013 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000013 /* DataManager.swift */; };
+		AA000014 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000014 /* LineChartView.swift */; };
+		AA000015 /* WebPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000015 /* WebPanel.swift */; };
+		AA000016 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000016 /* LoadingScreen.swift */; };
+		AA000017 /* RedirectTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000017 /* RedirectTracker.swift */; };
+		AA000018 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB000018 /* StoreKit.framework */; };
+		AA000019 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB000019 /* WebKit.framework */; };
+		AA000020 /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000021 /* SessionHistoryView.swift */; };
+		AA000021 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000022 /* AchievementsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AB000000 /* Blind Type Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blind Type Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB000001 /* BlindTypeTrainerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindTypeTrainerApp.swift; sourceTree = "<group>"; };
+		AB000000 /* First Step: Blind Type.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "First Step: Blind Type.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB000001 /* FirstStepBlindTypeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepBlindTypeApp.swift; sourceTree = "<group>"; };
 		AB000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB000003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB000004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -44,7 +43,7 @@
 		AB000009 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AB000010 /* WordBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBank.swift; sourceTree = "<group>"; };
 		AB000011 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
-		AB000012 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		AB000012 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		AB000013 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		AB000014 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		AB000015 /* WebPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPanel.swift; sourceTree = "<group>"; };
@@ -55,7 +54,6 @@
 		AB000020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB000021 /* SessionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistoryView.swift; sourceTree = "<group>"; };
 		AB000022 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
-		AB000023 /* PremiumModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,17 +72,17 @@
 		AD000001 = {
 			isa = PBXGroup;
 			children = (
-				AD000002 /* Blind Type Trainer */,
+				AD000002 /* First Step: Blind Type */,
 				AD000003 /* Products */,
 				AD000004 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		AD000002 /* Blind Type Trainer */ = {
+		AD000002 /* First Step: Blind Type */ = {
 			isa = PBXGroup;
 			children = (
 				AB000020 /* Info.plist */,
-				AB000001 /* BlindTypeTrainerApp.swift */,
+				AB000001 /* FirstStepBlindTypeApp.swift */,
 				AB000002 /* ContentView.swift */,
 				AB000004 /* HomeView.swift */,
 				AB000005 /* TrainingView.swift */,
@@ -94,7 +92,7 @@
 				AB000009 /* SettingsView.swift */,
 				AB000010 /* WordBank.swift */,
 				AB000011 /* GameManager.swift */,
-				AB000012 /* StoreManager.swift */,
+				AB000012 /* ThemeManager.swift */,
 				AB000013 /* DataManager.swift */,
 				AB000014 /* LineChartView.swift */,
 				AB000015 /* WebPanel.swift */,
@@ -102,16 +100,15 @@
 				AB000017 /* RedirectTracker.swift */,
 				AB000021 /* SessionHistoryView.swift */,
 				AB000022 /* AchievementsView.swift */,
-				AB000023 /* PremiumModalView.swift */,
 				AB000003 /* Assets.xcassets */,
 			);
-			path = "Blind Type Trainer";
+			path = "First-Step-Blind-Type";
 			sourceTree = "<group>";
 		};
 		AD000003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB000000 /* Blind Type Trainer.app */,
+				AB000000 /* First Step: Blind Type.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,9 +125,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AE000001 /* Blind Type Trainer */ = {
+		AE000001 /* First Step: Blind Type */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AF000003 /* Build configuration list for PBXNativeTarget "Blind Type Trainer" */;
+			buildConfigurationList = AF000003 /* Build configuration list for PBXNativeTarget "First-Step-Blind-Type" */;
 			buildPhases = (
 				AC000002 /* Sources */,
 				AC000001 /* Frameworks */,
@@ -140,9 +137,9 @@
 			);
 			dependencies = (
 			);
-			name = "Blind Type Trainer";
-			productName = "Blind Type Trainer";
-			productReference = AB000000 /* Blind Type Trainer.app */;
+			name = "First-Step-Blind-Type";
+			productName = "First-Step-Blind-Type";
+			productReference = AB000000 /* First Step: Blind Type.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -160,7 +157,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AF000001 /* Build configuration list for PBXProject "Blind Type Trainer" */;
+			buildConfigurationList = AF000001 /* Build configuration list for PBXProject "First-Step-Blind-Type" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -173,7 +170,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AE000001 /* Blind Type Trainer */,
+				AE000001 /* First Step: Blind Type */,
 			);
 		};
 /* End PBXProject section */
@@ -194,7 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA000001 /* BlindTypeTrainerApp.swift in Sources */,
+				AA000001 /* FirstStepBlindTypeApp.swift in Sources */,
 				AA000002 /* ContentView.swift in Sources */,
 				AA000004 /* HomeView.swift in Sources */,
 				AA000005 /* TrainingView.swift in Sources */,
@@ -204,7 +201,7 @@
 				AA000009 /* SettingsView.swift in Sources */,
 				AA000010 /* WordBank.swift in Sources */,
 				AA000011 /* GameManager.swift in Sources */,
-				AA000012 /* StoreManager.swift in Sources */,
+				AA000012 /* ThemeManager.swift in Sources */,
 				AA000013 /* DataManager.swift in Sources */,
 				AA000014 /* LineChartView.swift in Sources */,
 				AA000015 /* WebPanel.swift in Sources */,
@@ -212,7 +209,6 @@
 				AA000017 /* RedirectTracker.swift in Sources */,
 				AA000020 /* SessionHistoryView.swift in Sources */,
 				AA000021 /* AchievementsView.swift in Sources */,
-				AA000022 /* PremiumModalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +286,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Blind Type Trainer/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Blind Type Trainer";
+				INFOPLIST_FILE = "First-Step-Blind-Type/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "First Step: Blind Type";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -301,11 +297,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blindtype.trainer;
-				PRODUCT_NAME = "Blind Type Trainer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.firststepblindtype.app;
+				PRODUCT_NAME = "First Step: Blind Type";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -322,8 +320,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Blind Type Trainer/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Blind Type Trainer";
+				INFOPLIST_FILE = "First-Step-Blind-Type/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "First Step: Blind Type";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -333,11 +331,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blindtype.trainer;
-				PRODUCT_NAME = "Blind Type Trainer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.firststepblindtype.app;
+				PRODUCT_NAME = "First Step: Blind Type";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -347,7 +347,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AF000001 /* Build configuration list for PBXProject "Blind Type Trainer" */ = {
+		AF000001 /* Build configuration list for PBXProject "First-Step-Blind-Type" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF000011 /* Debug */,
@@ -356,7 +356,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AF000003 /* Build configuration list for PBXNativeTarget "Blind Type Trainer" */ = {
+		AF000003 /* Build configuration list for PBXNativeTarget "First-Step-Blind-Type" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF000021 /* Debug */,
@@ -366,7 +366,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = AE000002 /* Project object */;
 }

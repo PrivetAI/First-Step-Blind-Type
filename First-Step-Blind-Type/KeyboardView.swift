@@ -7,9 +7,10 @@ struct KeyboardView: View {
     let lastKeyCorrect: Bool?
     let lastKeyPressed: String
 
-    @ObservedObject private var store = StoreManager.shared
+    @ObservedObject private var theme = ThemeManager.shared
+    @State private var hiddenKeys: Set<String> = []
 
-    private var accent: Color { store.accentColor }
+    private var accent: Color { theme.accentColor }
     private let errorRed = Color(red: 1, green: 0.2, blue: 0.2)
 
     private let row1 = ["Q","W","E","R","T","Y","U","I","O","P"]
@@ -34,6 +35,22 @@ struct KeyboardView: View {
         }
         .padding(.horizontal, 4)
         .padding(.bottom, 8)
+        .onAppear {
+            generateHiddenKeys()
+        }
+        .onChange(of: difficulty) { _ in
+            generateHiddenKeys()
+        }
+    }
+    
+    private func generateHiddenKeys() {
+        let allKeys = row1 + row2 + row3
+        let percentage = difficulty.hiddenPercentage
+        let hideCount = Int(Double(allKeys.count) * percentage)
+        
+        // Randomly select keys to hide
+        let shuffled = allKeys.shuffled()
+        hiddenKeys = Set(shuffled.prefix(hideCount))
     }
 
     private func keyRow(_ keys: [String]) -> some View {
@@ -51,17 +68,17 @@ struct KeyboardView: View {
             return correct ? accent : errorRed
         }()
 
-        let keyOpacity = difficulty.keyboardOpacity
+        let isHidden = hiddenKeys.contains(key)
         let outlineMode = difficulty.showOutline
 
         return Button(action: { onKeyPress(key) }) {
-            Text(key)
+            Text(isHidden ? "" : key)
                 .font(.system(size: 18, weight: .medium, design: .default))
-                .foregroundColor(.white.opacity(keyOpacity > 0 ? max(keyOpacity, 0.05) : 0.0))
+                .foregroundColor(.white)
                 .frame(minWidth: 28, maxWidth: .infinity, minHeight: 42)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(outlineMode ? Color.clear : Color(red: 50/255, green: 50/255, blue: 50/255).opacity(keyOpacity))
+                        .fill(outlineMode ? Color.clear : Color(red: 50/255, green: 50/255, blue: 50/255))
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
                                 .stroke(
@@ -79,14 +96,16 @@ struct KeyboardView: View {
     }
 
     private var deleteButton: some View {
-        Button(action: { onKeyPress("DEL") }) {
-            Text("DEL")
+        let isHidden = difficulty == .expert
+        
+        return Button(action: { onKeyPress("DEL") }) {
+            Text(isHidden ? "" : "DEL")
                 .font(.system(size: 13, weight: .medium, design: .default))
-                .foregroundColor(.white.opacity(difficulty.keyboardOpacity > 0 ? max(difficulty.keyboardOpacity, 0.3) : 0.0))
+                .foregroundColor(.white.opacity(0.7))
                 .frame(width: 50, height: 42)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(Color(red: 60/255, green: 40/255, blue: 40/255).opacity(difficulty.keyboardOpacity > 0 ? max(difficulty.keyboardOpacity, 0.1) : 0.0))
+                        .fill(Color(red: 60/255, green: 40/255, blue: 40/255))
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
                                 .stroke(
@@ -104,15 +123,17 @@ struct KeyboardView: View {
             guard isLastPressed, let correct = lastKeyCorrect else { return .clear }
             return correct ? accent : errorRed
         }()
+        
+        let isHidden = difficulty == .expert
 
         return Button(action: { onKeyPress("SPACE") }) {
-            Text("SPACE")
+            Text(isHidden ? "" : "SPACE")
                 .font(.system(size: 14, weight: .medium, design: .default))
-                .foregroundColor(.white.opacity(difficulty.keyboardOpacity > 0 ? max(difficulty.keyboardOpacity, 0.3) : 0.0))
+                .foregroundColor(.white.opacity(0.7))
                 .frame(maxWidth: .infinity, minHeight: 42)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(Color(red: 50/255, green: 50/255, blue: 50/255).opacity(difficulty.keyboardOpacity > 0 ? max(difficulty.keyboardOpacity, 0.1) : 0.0))
+                        .fill(Color(red: 50/255, green: 50/255, blue: 50/255))
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
                                 .stroke(

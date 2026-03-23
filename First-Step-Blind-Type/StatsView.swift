@@ -2,9 +2,9 @@ import SwiftUI
 
 struct StatsView: View {
     @ObservedObject private var data = DataManager.shared
-    @ObservedObject private var store = StoreManager.shared
+    @ObservedObject private var theme = ThemeManager.shared
 
-    private var accent: Color { store.accentColor }
+    private var accent: Color { theme.accentColor }
     private let baseBG = Color(red: 10/255, green: 10/255, blue: 10/255)
     private let cardBG = Color(red: 30/255, green: 30/255, blue: 30/255)
 
@@ -78,19 +78,17 @@ struct StatsView: View {
                         )
                 )
 
-                // Export button (premium only)
-                if store.isPremium {
-                    Button(action: exportStats) {
-                        Text("Export Stats")
-                            .font(.system(size: 15, weight: .bold, design: .default))
-                            .foregroundColor(.black)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .fill(accent)
-                            )
-                    }
+                // Export button
+                Button(action: exportStats) {
+                    Text("Export Stats")
+                        .font(.system(size: 15, weight: .bold, design: .default))
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(accent)
+                        )
                 }
 
                 Spacer().frame(height: 40)

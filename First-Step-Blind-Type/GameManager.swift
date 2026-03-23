@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import UIKit
 
 enum Difficulty: String, CaseIterable {
     case easy = "Easy"
@@ -7,12 +8,12 @@ enum Difficulty: String, CaseIterable {
     case hard = "Hard"
     case expert = "Expert"
 
-    var keyboardOpacity: Double {
+    var hiddenPercentage: Double {
         switch self {
-        case .easy: return 1.0
+        case .easy: return 0.0
         case .medium: return 0.5
-        case .hard: return 0.2
-        case .expert: return 0.0
+        case .hard: return 0.8
+        case .expert: return 1.0
         }
     }
 
@@ -24,6 +25,7 @@ enum Difficulty: String, CaseIterable {
 class GameManager: ObservableObject {
     @Published var currentText = ""
     @Published var typedText = ""
+    @Published var wrongChar: String? = nil  // Temporarily holds wrong character to display in red
     @Published var timeRemaining = 60
     @Published var isActive = false
     @Published var isFinished = false
@@ -88,6 +90,7 @@ class GameManager: ObservableObject {
         if key == "DEL" {
             if !typedText.isEmpty {
                 typedText.removeLast()
+                wrongChar = nil
             }
             return
         }
@@ -96,31 +99,44 @@ class GameManager: ObservableObject {
         let expectedIndex = typedText.count
         let textChars = Array(currentText)
 
+        guard expectedIndex < textChars.count else { return }
+        
+        let expected = String(textChars[expectedIndex]).lowercased()
+        
         totalChars += 1
 
-        if expectedIndex < textChars.count {
-            let expected = String(textChars[expectedIndex]).lowercased()
-            if inputChar == expected {
-                correctChars += 1
-                lastKeyCorrect = true
-            } else {
-                lastKeyCorrect = false
+        if inputChar == expected {
+            // CORRECT letter typed
+            correctChars += 1
+            lastKeyCorrect = true
+            lastKeyPressed = key
+            typedText += inputChar
+            wrongChar = nil
+            
+            // Check if word/sentence is complete
+            if typedText.count >= currentText.count {
+                if typedText == currentText.lowercased() {
+                    wordsCompleted += max(1, currentText.components(separatedBy: " ").count)
+                } else {
+                    wordsCompleted += 1
+                }
+                typedText = ""
+                nextText()
             }
         } else {
+            // WRONG letter typed - show it in red, don't advance
             lastKeyCorrect = false
-        }
-
-        lastKeyPressed = key
-        typedText += inputChar
-
-        if typedText.count >= currentText.count {
-            if typedText == currentText.lowercased() {
-                wordsCompleted += max(1, currentText.components(separatedBy: " ").count)
-            } else {
-                wordsCompleted += 1
+            lastKeyPressed = key
+            wrongChar = inputChar
+            
+            // Haptic feedback for wrong letter
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+            
+            // Clear wrong char after brief delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.wrongChar = nil
             }
-            typedText = ""
-            nextText()
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {

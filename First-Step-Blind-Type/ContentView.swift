@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab = 0
-    @ObservedObject private var store = StoreManager.shared
+    @ObservedObject private var theme = ThemeManager.shared
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -37,9 +37,9 @@ struct ContentView: View {
 
 struct CustomTabBar: View {
     @Binding var selectedTab: Int
-    @ObservedObject private var store = StoreManager.shared
+    @ObservedObject private var theme = ThemeManager.shared
 
-    private var accent: Color { store.accentColor }
+    private var accent: Color { theme.accentColor }
     private let tabs = ["Train", "Stats", "History", "Awards", "Settings"]
 
     var body: some View {
@@ -66,9 +66,9 @@ struct CustomTabBar: View {
 struct TabIconView: View {
     let index: Int
     let isSelected: Bool
-    @ObservedObject private var store = StoreManager.shared
+    @ObservedObject private var theme = ThemeManager.shared
 
-    private var accent: Color { store.accentColor }
+    private var accent: Color { theme.accentColor }
     private var iconColor: Color { isSelected ? accent : .white.opacity(0.4) }
 
     var body: some View {

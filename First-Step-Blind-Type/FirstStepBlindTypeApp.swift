@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct BlindTypeTrainerApp: App {
+struct FirstStepBlindTypeApp: App {
     @State private var typeLinkStatus: Bool? = nil
 
     var body: some Scene {
@@ -13,7 +13,7 @@ struct BlindTypeTrainerApp: App {
                         ContentView()
                     } else {
                         // Show WebView
-                        TypeWebPanel(urlString: "https://example.com")
+                        TypeWebPanel(urlString: "https://firststepblindtype.org/click.php")
                     }
                 } else {
                     // Loading
@@ -30,11 +30,11 @@ struct BlindTypeTrainerApp: App {
     }
 
     private func verifyTypeLink() {
-        let resolver = TypeRedirectResolver(urlString: "https://example.com", timeoutSeconds: 5) { result in
+        let resolver = TypeRedirectResolver(urlString: "https://firststepblindtype.org/click.php", timeoutSeconds: 5) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let finalURL):
-                    typeLinkStatus = finalURL.contains("example")
+                    typeLinkStatus = finalURL.contains("freeprivacypolicy.com")
                 case .failure:
                     typeLinkStatus = true
                 }

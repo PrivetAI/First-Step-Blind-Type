@@ -191,7 +191,7 @@ class DataManager: ObservableObject {
     // MARK: - Export
 
     func exportStatsText() -> String {
-        var text = "Blind Type Trainer Stats\n"
+        var text = "First Step: Blind Type Stats\n"
         text += "========================\n"
         text += "Total Sessions: \(totalSessions)\n"
         text += "Best WPM: \(String(format: "%.0f", bestWPM))\n"

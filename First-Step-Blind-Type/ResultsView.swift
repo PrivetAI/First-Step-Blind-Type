@@ -3,9 +3,9 @@ import SwiftUI
 struct ResultsView: View {
     @ObservedObject var gameManager: GameManager
     let onDismiss: () -> Void
-    @ObservedObject private var store = StoreManager.shared
+    @ObservedObject private var theme = ThemeManager.shared
 
-    private var accent: Color { store.accentColor }
+    private var accent: Color { theme.accentColor }
     private let baseBG = Color(red: 10/255, green: 10/255, blue: 10/255)
     private let cardBG = Color(red: 30/255, green: 30/255, blue: 30/255)
 
@@ -65,7 +65,7 @@ struct ResultsView: View {
     }
 
     private func shareResults() {
-        let text = "Blind Type Trainer\n\(gameManager.difficulty.rawValue) - \(gameManager.practiceMode.rawValue)\nWPM: \(String(format: "%.0f", gameManager.wpm))\nAccuracy: \(String(format: "%.1f%%", gameManager.accuracy))"
+        let text = "First Step: Blind Type\n\(gameManager.difficulty.rawValue) - \(gameManager.practiceMode.rawValue)\nWPM: \(String(format: "%.0f", gameManager.wpm))\nAccuracy: \(String(format: "%.1f%%", gameManager.accuracy))"
         guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = scene.windows.first,
               let rootVC = window.rootViewController else { return }

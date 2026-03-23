@@ -3,9 +3,9 @@ import SwiftUI
 struct TrainingView: View {
     @ObservedObject var gameManager: GameManager
     let onFinish: () -> Void
-    @ObservedObject private var store = StoreManager.shared
+    @ObservedObject private var theme = ThemeManager.shared
 
-    private var accent: Color { store.accentColor }
+    private var accent: Color { theme.accentColor }
     private let baseBG = Color(red: 10/255, green: 10/255, blue: 10/255)
 
     var body: some View {
@@ -77,9 +77,16 @@ struct TrainingView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 1) {
                             ForEach(Array(gameManager.currentText.enumerated()), id: \.offset) { index, char in
-                                Text(String(char))
-                                    .font(.system(size: gameManager.practiceMode == .words ? 22 : 16, weight: .medium, design: .monospaced))
-                                    .foregroundColor(colorForChar(at: index))
+                                if index == gameManager.typedText.count && gameManager.wrongChar != nil {
+                                    // Show wrong character in red at current position
+                                    Text(gameManager.wrongChar!)
+                                        .font(.system(size: gameManager.practiceMode == .words ? 22 : 16, weight: .medium, design: .monospaced))
+                                        .foregroundColor(.red)
+                                } else {
+                                    Text(String(char))
+                                        .font(.system(size: gameManager.practiceMode == .words ? 22 : 16, weight: .medium, design: .monospaced))
+                                        .foregroundColor(colorForChar(at: index))
+                                }
                             }
                         }
                         .padding(.horizontal, 20)

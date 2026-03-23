@@ -73,24 +73,9 @@ struct TrainingView: View {
                             .padding(.horizontal, 20)
                     }
 
-                    // Typed progress
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 1) {
-                            ForEach(Array(gameManager.currentText.enumerated()), id: \.offset) { index, char in
-                                if index == gameManager.typedText.count && gameManager.wrongChar != nil {
-                                    // Show wrong character in red at current position
-                                    Text(gameManager.wrongChar!)
-                                        .font(.system(size: gameManager.practiceMode == .words ? 22 : 16, weight: .medium, design: .monospaced))
-                                        .foregroundColor(.red)
-                                } else {
-                                    Text(String(char))
-                                        .font(.system(size: gameManager.practiceMode == .words ? 22 : 16, weight: .medium, design: .monospaced))
-                                        .foregroundColor(colorForChar(at: index))
-                                }
-                            }
-                        }
+                    // Typed progress - show what user actually typed
+                    typedProgressView
                         .padding(.horizontal, 20)
-                    }
                 }
 
                 Spacer()
@@ -112,6 +97,41 @@ struct TrainingView: View {
         .onChange(of: gameManager.isFinished) { finished in
             if finished { onFinish() }
         }
+    }
+
+    @ViewBuilder
+    private var typedProgressView: some View {
+        let fontSize: CGFloat = gameManager.practiceMode == .words ? 22 : 16
+        if gameManager.practiceMode == .words {
+            // Words mode: horizontal scroll is fine
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 1) {
+                    ForEach(Array(gameManager.currentText.enumerated()), id: \.offset) { index, char in
+                        charView(index: index, char: char, fontSize: fontSize)
+                    }
+                }
+            }
+        } else {
+            // Sentences mode: wrap text using a single attributed-style Text
+            let chars = Array(gameManager.currentText)
+            let typedChars = Array(gameManager.typedText)
+            chars.indices.reduce(Text("")) { result, index in
+                let ch = index < typedChars.count ? String(typedChars[index]) : String(chars[index])
+                let color = colorForChar(at: index)
+                return result + Text(ch)
+                    .font(.system(size: fontSize, weight: .medium, design: .monospaced))
+                    .foregroundColor(color)
+            }
+            .multilineTextAlignment(.center)
+        }
+    }
+
+    private func charView(index: Int, char: Character, fontSize: CGFloat) -> some View {
+        let typedChars = Array(gameManager.typedText)
+        let display = index < typedChars.count ? String(typedChars[index]) : String(char)
+        return Text(display)
+            .font(.system(size: fontSize, weight: .medium, design: .monospaced))
+            .foregroundColor(colorForChar(at: index))
     }
 
     private func colorForChar(at index: Int) -> Color {

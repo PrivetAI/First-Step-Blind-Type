@@ -25,7 +25,6 @@ enum Difficulty: String, CaseIterable {
 class GameManager: ObservableObject {
     @Published var currentText = ""
     @Published var typedText = ""
-    @Published var wrongChar: String? = nil  // Temporarily holds wrong character to display in red
     @Published var timeRemaining = 60
     @Published var isActive = false
     @Published var isFinished = false
@@ -90,7 +89,6 @@ class GameManager: ObservableObject {
         if key == "DEL" {
             if !typedText.isEmpty {
                 typedText.removeLast()
-                wrongChar = nil
             }
             return
         }
@@ -109,34 +107,23 @@ class GameManager: ObservableObject {
             // CORRECT letter typed
             correctChars += 1
             lastKeyCorrect = true
-            lastKeyPressed = key
-            typedText += inputChar
-            wrongChar = nil
-            
-            // Check if word/sentence is complete
-            if typedText.count >= currentText.count {
-                if typedText == currentText.lowercased() {
-                    wordsCompleted += max(1, currentText.components(separatedBy: " ").count)
-                } else {
-                    wordsCompleted += 1
-                }
-                typedText = ""
-                nextText()
-            }
         } else {
-            // WRONG letter typed - show it in red, don't advance
+            // WRONG letter typed - still advance, but mark as wrong
             lastKeyCorrect = false
-            lastKeyPressed = key
-            wrongChar = inputChar
             
             // Haptic feedback for wrong letter
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
-            
-            // Clear wrong char after brief delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.wrongChar = nil
-            }
+        }
+
+        lastKeyPressed = key
+        typedText += inputChar  // Always advance - add the typed character
+        
+        // Check if word/sentence is complete
+        if typedText.count >= currentText.count {
+            wordsCompleted += max(1, currentText.components(separatedBy: " ").count)
+            typedText = ""
+            nextText()
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {

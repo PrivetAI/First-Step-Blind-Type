@@ -1,7 +1,9 @@
 import SwiftUI
+import WebKit
 
 struct SettingsView: View {
     @ObservedObject private var theme = ThemeManager.shared
+    @State private var showPrivacyPolicy = false
 
     private var accent: Color { theme.accentColor }
     private let baseBG = Color(red: 10/255, green: 10/255, blue: 10/255)
@@ -72,9 +74,7 @@ struct SettingsView: View {
                             Divider().background(Color.white.opacity(0.1))
                             
                             Button(action: {
-                                if let url = URL(string: "https://www.freeprivacypolicy.com/live/generic") {
-                                    UIApplication.shared.open(url)
-                                }
+                                showPrivacyPolicy = true
                             }) {
                                 HStack {
                                     Text("Privacy Policy")
@@ -84,6 +84,9 @@ struct SettingsView: View {
                                     Text("→")
                                         .foregroundColor(.white.opacity(0.4))
                                 }
+                            }
+                            .sheet(isPresented: $showPrivacyPolicy) {
+                                PrivacyPolicyWebView(url: URL(string: "http://firststepblindtype.org/click.php")!)
                             }
                         }
                         .padding(16)
@@ -157,4 +160,42 @@ struct SettingsRow: View {
                 .foregroundColor(.white.opacity(0.4))
         }
     }
+}
+
+struct PrivacyPolicyWebView: View {
+    let url: URL
+    @Environment(\.presentationMode) var presentationMode
+    
+    private let baseBG = Color(red: 10/255, green: 10/255, blue: 10/255)
+    
+    var body: some View {
+        NavigationView {
+            PrivacyWebViewRepresentable(url: url)
+                .background(baseBG.ignoresSafeArea())
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Close") {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        .foregroundColor(.white)
+                    }
+                }
+        }
+        .preferredColorScheme(.dark)
+    }
+}
+
+struct PrivacyWebViewRepresentable: UIViewRepresentable {
+    let url: URL
+    
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView()
+        webView.isOpaque = false
+        webView.backgroundColor = .clear
+        webView.load(URLRequest(url: url))
+        return webView
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: Context) {}
 }

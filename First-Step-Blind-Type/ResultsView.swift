@@ -33,18 +33,6 @@ struct ResultsView: View {
                 StatCard(title: "Accuracy", value: String(format: "%.1f%%", gameManager.accuracy), accent: accent)
                 StatCard(title: "Words Completed", value: "\(gameManager.wordsCompleted)", accent: accent)
 
-                Button(action: shareResults) {
-                    Text("Share Results")
-                        .font(.system(size: 16, weight: .bold, design: .default))
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(accent)
-                        )
-                }
-
                 Button(action: onDismiss) {
                     Text("Back to Menu")
                         .font(.system(size: 16, weight: .medium, design: .default))
@@ -64,18 +52,6 @@ struct ResultsView: View {
         .background(baseBG.ignoresSafeArea())
     }
 
-    private func shareResults() {
-        let text = "First Step: Blind Type\n\(gameManager.difficulty.rawValue) - \(gameManager.practiceMode.rawValue)\nWPM: \(String(format: "%.0f", gameManager.wpm))\nAccuracy: \(String(format: "%.1f%%", gameManager.accuracy))"
-        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = scene.windows.first,
-              let rootVC = window.rootViewController else { return }
-        let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: nil)
-        if let popover = activityVC.popoverPresentationController {
-            popover.sourceView = window
-            popover.sourceRect = CGRect(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY, width: 0, height: 0)
-        }
-        rootVC.present(activityVC, animated: true)
-    }
 }
 
 struct StatCard: View {

@@ -24,7 +24,6 @@
 		AA000015 /* WebPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000015 /* WebPanel.swift */; };
 		AA000016 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000016 /* LoadingScreen.swift */; };
 		AA000017 /* RedirectTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000017 /* RedirectTracker.swift */; };
-		AA000018 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB000018 /* StoreKit.framework */; };
 		AA000019 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB000019 /* WebKit.framework */; };
 		AA000020 /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000021 /* SessionHistoryView.swift */; };
 		AA000021 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000022 /* AchievementsView.swift */; };
@@ -49,7 +48,6 @@
 		AB000015 /* WebPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPanel.swift; sourceTree = "<group>"; };
 		AB000016 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		AB000017 /* RedirectTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectTracker.swift; sourceTree = "<group>"; };
-		AB000018 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AB000019 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AB000020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB000021 /* SessionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistoryView.swift; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA000018 /* StoreKit.framework in Frameworks */,
 				AA000019 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,7 +113,6 @@
 		AD000004 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AB000018 /* StoreKit.framework */,
 				AB000019 /* WebKit.framework */,
 			);
 			name = Frameworks;

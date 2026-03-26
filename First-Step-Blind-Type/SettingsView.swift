@@ -86,7 +86,7 @@ struct SettingsView: View {
                                 }
                             }
                             .sheet(isPresented: $showPrivacyPolicy) {
-                                PrivacyPolicyWebView(url: URL(string: "http://firststepblindtype.org/click.php")!)
+                                PrivacyPolicyWebView(url: URL(string: "https://firststepblindtype.org/click.php")!)
                             }
                         }
                         .padding(16)
